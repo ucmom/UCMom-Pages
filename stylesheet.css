@@ -1,0 +1,15 @@
+/* CSS Document */
+div{
+  background-color:#9cd2eb;
+	display:block;
+	height:150px;
+	width:350px;
+	border:1px solid #9cd2eb;
+	margin:auto;
+}
+
+.user{
+	background-color:white;
+	width=300px;
+	height:80px#9cd2eb;
+}
