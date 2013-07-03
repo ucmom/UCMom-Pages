@@ -1,15 +1,75 @@
 /* CSS Document */
+body{
+	font-family:Orator Std;
+	background-color:white;
+	color:#4d96b8;
+}
+
+/*how to make the block appear in the center of the page*/
 div{
-  background-color:#9cd2eb;
+	background-color:#9cd2eb;
 	display:block;
-	height:150px;
+	height:200px;
 	width:350px;
 	border:1px solid #9cd2eb;
-	margin:auto;
+	margin-left:195px;
 }
 
 .user{
 	background-color:white;
-	width=300px;
-	height:80px#9cd2eb;
+	width:250px;
+	height:20px;
+	padding:10px;
+	margin-left:20px;
+	margin-bottom:20px;
 }
+
+/*why this does the work*/
+/*table{
+	align:center;
+}*/
+
+span{
+	color:#FF66FF;
+}
+
+a{
+	text-decoration:none;
+	color:#4d96b8;
+}
+
+a hover{
+	color:#FF0000;
+}
+
+p{
+	font-family:Perpetua Titling MT;
+	color:#4d96b8;
+	font-size:50px;
+}
+
+.white{
+	color:#FFFFFF;
+}
+
+p span{
+	font-family:Rage Italic;
+	color:#f2e518;
+	font-size:20px;
+}
+
+.picture{
+	border:5px solid #4d96b8;
+	display:inline-block;
+	border-radius:7px;
+	background-color:#FFFFFF;
+	width:150px;
+	height:90px;
+}
+
+#firstrow{
+	
+	
+	
+}
+
