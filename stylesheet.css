@@ -6,28 +6,64 @@ body{
 }
 
 /*how to make the block appear in the center of the page*/
-div{
+
+#geisel1, #geisel2, #geisel3, #geisel4 
+{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#loginbox
+{
 	background-color:#9cd2eb;
 	display:block;
 	height:200px;
-	width:350px;
+	width:400px;
 	border:1px solid #9cd2eb;
-	margin-left:195px;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:5px;
+	
 }
 
-.user{
+.inputbox
+{
+	margin-left:30px;
+	margin-right:auto;
+}
+
+
+#loginbtn
+{
+	padding-top:25px;
+	margin-left:800px;
+}
+
+/*.user{
 	background-color:white;
 	width:250px;
 	height:20px;
 	padding:10px;
 	margin-left:20px;
 	margin-bottom:20px;
-}
+} */
 
 /*why this does the work*/
 /*table{
 	align:center;
 }*/
+
+/*I added this to make the spaces in the header -Sneha */
+
+#linkheadertable{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#linkheadertable td{
+    text-align:center;
+	width:100px;
+}
 
 span{
 	color:#FF66FF;
@@ -67,9 +103,4 @@ p span{
 	height:90px;
 }
 
-#firstrow{
-	
-	
-	
-}
 
