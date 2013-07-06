@@ -5,7 +5,7 @@
 		<link type="text/css" rel="stylesheet" href="stylesheet.css">
 	</head>
 <body>
-	<table align="center">
+	<table id="linkheadertable">
 		<thead></thead>
 		<tbody>
 		<tr>
@@ -17,18 +17,22 @@
 		</tr>
 		</tbody>
 	</table>
-	 
+
 	<hr width="80%";size="3" />
 	<h3 align="center">WELCOME! PLEASE SIGN IN TO ENTER SITE</h3>
-	<div>
-		<h3 class="white">EMAIL</h3>
-		<div class="user">
+	<div id="loginbox">
+		<div class="inputbox">
 			<!--empty block to enter user email-->
-		</div>
-		<h3 class="white">5 DIGIT CODE</h3>
-		<div class="user">
+			<h4 class="white">EMAIL</h3>
+			<input type="username" size="50" name="emaillogin"></td>
 		 	<!--empty block to enter password-->
-		</div>
+			<h4 class="white">5 DIGIT CODE</h3>
+			<input type="password" size="50" name="digitcode">
+		</div>	
+	</div>
+	
+	<div id="loginbtn">
+		<input type="submit" name="submit" value="Enter">
 	</div>
 </body>
 </html>
