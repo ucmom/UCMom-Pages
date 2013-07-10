@@ -51,6 +51,8 @@ body{
 	width:100px;
 	padding-left:50px;
 	padding-right:50px;
+	letter-spacing:5px;
+	word-spacing:5px;
 }
 
 span{
@@ -91,10 +93,3 @@ p span{
 	width:150px;
 	height:90px;
 }
-
-body h3{
-	margin-left:auto;
-	margin-right:auto;
-	letter-spacing:5px;
-	word-spacing:5px;
-	}
