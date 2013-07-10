@@ -39,30 +39,18 @@ body{
 	margin-left:800px;
 }
 
-/*.user{
-	background-color:white;
-	width:250px;
-	height:20px;
-	padding:10px;
-	margin-left:20px;
-	margin-bottom:20px;
-} */
-
-/*why this does the work*/
-/*table{
-	align:center;
-}*/
-
 /*I added this to make the spaces in the header -Sneha */
-
 #linkheadertable{
 	margin-left:auto;
 	margin-right:auto;
+	font-weight:bold;
 }
 
 #linkheadertable td{
     text-align:center;
 	width:100px;
+	padding-left:50px;
+	padding-right:50px;
 }
 
 span{
@@ -71,11 +59,6 @@ span{
 
 a{
 	text-decoration:none;
-	color:#4d96b8;
-}
-
-a hover{
-	color:#FF0000;
 }
 
 p{
@@ -84,14 +67,14 @@ p{
 	font-size:50px;
 }
 
-.white{
-	color:#FFFFFF;
-}
-
 p span{
 	font-family:Rage Italic;
 	color:#f2e518;
 	font-size:20px;
+}
+
+.white{
+	color:#FFFFFF;
 }
 
 .picture{
@@ -103,4 +86,9 @@ p span{
 	height:90px;
 }
 
-
+body h3{
+	margin-left:auto;
+	margin-right:auto;
+	letter-spacing:5px;
+	word-spacing:5px;
+	}
