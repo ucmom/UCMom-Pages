@@ -59,6 +59,12 @@ span{
 
 a{
 	text-decoration:none;
+	color:#4d96b8;
+	
+}
+
+a:hover{
+	color:#FF0000;
 }
 
 p{
