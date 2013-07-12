@@ -1,6 +1,7 @@
 /* CSS Document */
 body{
-	font-family:Orator Std;
+	/*back-up font*/
+	font-family:Orator Std,Verdana,sans-serif;
 	background-color:white;
 	color:#4d96b8;
 }
@@ -93,3 +94,11 @@ p span{
 	width:150px;
 	height:90px;
 }
+
+body h3{
+	margin-left:auto;
+	margin-right:auto;
+	letter-spacing:5px;
+	word-spacing:5px;
+}
+
