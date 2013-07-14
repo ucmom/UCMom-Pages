@@ -1,7 +1,7 @@
 /* CSS Document */
 body{
 	/*back-up font*/
-	font-family:Orator Std,Verdana,sans-serif;
+	font-family:Courier-New;
 	background-color:white;
 	color:#4d96b8;
 }
@@ -24,7 +24,7 @@ body{
 	margin-left:auto;
 	margin-right:auto;
 	border-radius:5px;
-	
+
 }
 
 .inputbox
@@ -33,12 +33,56 @@ body{
 	margin-right:auto;
 }
 
-
-#loginbtn
-{
-	padding-top:25px;
-	margin-left:800px;
+.arrow_box {
+    height: 40px;
+    width: 40px;
+    background: #88b7d5;
+    margin: 20px 0 20px 20px;
+    position: relative;
+    display: block;
+	content: "";
+	margin-left:810px;
 }
+
+.arrow_box:after {
+    content: "";
+    position: absolute;
+    right: -30px;
+    top: -10px;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 30px solid #88b7d5; 
+	z-index: -2;
+} 
+
+input[type=submit]:hover{
+color:pink;
+}
+
+input[type=submit] {
+
+padding-top:9px;
+padding-bottom:10px;
+color:white;
+font-family: Courier-New;
+letter-spacing:1px;
+width:60px;
+cursor: pointer;
+background-color:transparent;
+border-color:transparent;
+font-weight:bold;
+font-size: 14px;
+margin-left: 2px;
+
+
+}
+
+#invalidLoginText
+{
+text-align:center;
+color:red;
+}
+
 
 /*I added this to make the spaces in the header -Sneha */
 #linkheadertable{
@@ -63,7 +107,7 @@ span{
 a{
 	text-decoration:none;
 	color:#4d96b8;
-	
+
 }
 
 a:hover{
@@ -101,4 +145,3 @@ body h3{
 	letter-spacing:5px;
 	word-spacing:5px;
 }
-
