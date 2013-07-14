@@ -19,6 +19,12 @@
 
 	<hr width="80%";size="3" />
 	<h3 align="center">WELCOME! PLEASE SIGN IN TO ENTER SITE</h3>
+	<div id="invalidLoginText">
+	<!-- if login fails, insert this inner HTML into this div -->
+    <!-- <h3  align="center"><ul><li>INVALID FIELD, PLEASE ENTER AGAIN</li></h3>	
+	<!-- -->
+	</div>
+<form>
 	<div id="loginbox">
 		<div class="inputbox">
 			<!--empty block to enter user email-->
@@ -29,9 +35,11 @@
 			<input type="password" size="50" name="digitcode">
 		</div>	
 	</div>
-	
-	<div id="loginbtn">
-		<input type="submit" name="submit" value="Enter">
+
+	<div class="arrow_box">
+		<input type="submit" name="submit" value="ENTER">
 	</div>
+</form>
+
 </body>
 </html>
