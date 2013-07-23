@@ -145,3 +145,72 @@ body h3{
 	letter-spacing:5px;
 	word-spacing:5px;
 }
+
+.modalWindow {
+        position: fixed;
+        font-family:Orator Std,Courier-New,sans-serif;
+        font-size:80%;
+        top: 0;/*make the background appear the same in whole monitor*/
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 99999;
+        opacity:0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+}
+
+.modalWindow:target {
+        opacity:1;
+        pointer-events: auto;
+}
+
+.modalWindow > div {
+		width: 500px;
+        position: relative;
+        margin: 10% auto;
+		padding:10px 10px 13px 100px;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+		border-radius: 10px;
+        background: #fff;
+		word-spacing:10px;
+		letter-spacing:3px;
+		background-color:#AFEEEE;
+}
+
+/*Modify the title of each lactation room*/
+#firstLine{
+	font-family:Garbriola,Harrington,High Tower Text,sans-serif;
+	padding-left:50px;/* make the title appear in the center*/
+	padding-right:50px;
+	font-size:20px;
+	
+}
+
+.ok, .close, .cancel {
+        background: #606061;
+        color: #FFFFFF;
+        line-height: 25px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+    }
+    .close {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 22px;
+        height: 22px;
+        font-size: 10px;
+ }
