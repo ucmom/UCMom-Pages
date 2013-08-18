@@ -13,9 +13,9 @@
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
-	
+
 		var map;
-		
+
 		function initialize() {
 
 			var myLatlng1_PriceCntr = new google.maps.LatLng(32.88018, -117.23661);
@@ -23,86 +23,84 @@
 			var myLatlng3_Leichtag = new google.maps.LatLng(32.8777, -117.2371);
 			var myLatLng4_SME = new google.maps.LatLng(32.88040, -117.23320);
 			var myLatLng5_BSB = new google.maps.LatLng(32.8779, -117.2345);
-			var myLatLng6_EBU-3B = new google.maps.LatLng(32.8841, -117.2334);
+			var myLatLng6_EBU_3B = new google.maps.LatLng(32.8841, -117.2334);
 			var myLatLng7_Nierenberg = new google.maps.LatLng(32.86906, -117.25116);
 			var myLatLng8_WomensCtr = new google.maps.LatLng(32.877848, -117.234633);
 			var myLatLng9_TorreyPinesNorth = new google.maps.LatLng(32.89112, -117.24263);
 			var myLatLng10_ThorntonHospital = new google.maps.LatLng(32.8809, -117.2256);
-			
-			
 
-		
+
+
 			var mapOptions = {
 				zoom: 16,
 				center: new google.maps.LatLng(32.878, -117.236),
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
-			  
+
 			map = new google.maps.Map(document.getElementById('map-canvas'),
 				mapOptions);
-				  
+
 			var marker1 = new google.maps.Marker({
 				position: myLatlng1_PriceCntr,
 				map: map,
 				title: 'Price Center'
 			});
-			  
+
 			var marker2 = new google.maps.Marker({
 				position: myLatlng2_GalbraithHall,
 				map: map,
 				title: 'Galbraith Hall'
 			});
-			
+
 			var marker3 = new google.maps.Marker({
 				position: myLatlng3_Leichtag,
 				map: map,
 				title: 'Leichtag 2nd Floor'
 			});
-			
+
 			var marker4 = new google.maps.Marker({
 				position:  myLatLng4_SME,
 				map: map,
 				title: 'Structural and Materials Engineering'
 			});
-			
-			
+
+
 			var marker5 = new google.maps.Marker({
 				position: myLatLng5_BSB,
 				map: map,
 				title: 'Biomedical Science Building'
 			});
-			
+
 			var marker6 = new google.maps.Marker({
-				position: myLatLng6_EBU-3B,
+				position: myLatLng6_EBU_3B,
 				map: map,
 				title: 'Computer Science and Engineering Building '
 			});
-			
+
 			var marker7 = new google.maps.Marker({
 				position: myLatLng7_Nierenberg,
 				map: map,
 				title: 'Nierenberg'
 			});
-			
+
 			var marker8 = new google.maps.Marker({
 				position:  myLatLng8_WomensCtr,
 				map: map,
-				title: 'Women Center'
-			
+				title: "Women's Center"
+
+			});
 			var marker9 = new google.maps.Marker({
 				position: myLatLng9_TorreyPinesNorth,
 				map: map,
 				title: 'Torrey Pines North'
 			});
-			
+
 			var marker10 = new google.maps.Marker({
 				position: myLatLng10_ThorntonHospital,
 				map: map,
 				title: 'Thornton Hospital'
 			});
-			
-			
-			
+
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);
