@@ -5,109 +5,120 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
-  html, body, #map-canvas {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-     }
+		html, body, #map-canvas {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script>
+	
+	<!-- No API keys needed for V3 -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    
+	<script>
+		var map;//crate a map used later
+		var  directionDisplay = new google.maps.DirectionsRenderer();//DirectionRender object
+		var directionService = new google.maps.DirectionsService();//to use direction service in V3
+		var rooms =[];
+			//create only one infowindow
+			 var infowindow = new google.maps.InfoWindow({
+					size: new google.maps.Size(150,50)
+			});
+			
 
-		var map;
-
+			
+		
+		//the function is called in the end
 		function initialize() {
-
-			var myLatlng1_PriceCntr = new google.maps.LatLng(32.88018, -117.23661);
-			var myLatlng2_GalbraithHall = new google.maps.LatLng(32.87425, -117.24086);
-			var myLatlng3_Leichtag = new google.maps.LatLng(32.8777, -117.2371);
-			var myLatLng4_SME = new google.maps.LatLng(32.88040, -117.23320);
-			var myLatLng5_BSB = new google.maps.LatLng(32.8779, -117.2345);
-			var myLatLng6_EBU_3B = new google.maps.LatLng(32.8841, -117.2334);
-			var myLatLng7_Nierenberg = new google.maps.LatLng(32.86906, -117.25116);
-			var myLatLng8_WomensCtr = new google.maps.LatLng(32.877848, -117.234633);
-			var myLatLng9_TorreyPinesNorth = new google.maps.LatLng(32.89112, -117.24263);
-			var myLatLng10_ThorntonHospital = new google.maps.LatLng(32.8809, -117.2256);
-
-
+		   
+		   						//10 lactation rooms in total
+			//creating a marker array
+			var markers = [
+				{ lat: 32.88018,lng: -117.23661,name: "Price Center" },
+				{ lat: 32.87425,lng: -117.24086,name: "GalbraithHall"}, 
+				{ lat: 32.8777, lng: -117.2371, name: "Leichtag"},//2nd or 3rd floor
+				{ lat: 32.88040,lng: -117.23320,name:"Structural and Materials Engineering"},
+				{ lat: 32.8779, lng: -117.2345, name: "Biomedical Science Building"},
+				{ lat: 32.8841, lng: -117.2334, name: "Computer Science and Engineering Building "},
+				{ lat: 32.86906,lng:-117.25116, name: "Nierenberg"},
+				{ lat: 32.877848,lng: -117.234633,name : "Women's Center"}, 
+				{ lat: 32.89112,lng: -117.24263,name: "Torrey Pines North"}, 
+				{ lat: 32.8809, lng: -117.2256,name: "Thornton Hospital"} 
+			];
+		   	
 
 			var mapOptions = {
 				zoom: 16,
 				center: new google.maps.LatLng(32.878, -117.236),
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
-
+			//create the map
 			map = new google.maps.Map(document.getElementById('map-canvas'),
 				mapOptions);
+			directionDisplay.setMap(map);//bind the reader to the passed map
+			directionDisplay.setPanel(document.getElementById('directions-panel'));//show the textual result
+			
+			
+			//Zoom and center the map to fit the markers
+			var bounds = new google.maps.LatLngBounds();
+				for(index in markers){
+					addMarker(markers[index]);//add markers to the map
+					var data = markers[index];
+					bounds.extend(new google.maps.LatLng(data.lat, data.lng));
+				}
+				map.fitBounds(bounds);
+				
+				
+				
+				
+		
+			}//end of initialize
+			
 
-			var marker1 = new google.maps.Marker({
-				position: myLatlng1_PriceCntr,
-				map: map,
-				title: 'Price Center'
-			});
+												
+			function addMarker(data){
+				//create the marker
+				 		  google.maps.event.addListener(map, 'click', function() {
+				infowindow.close();
+				});
+				
+				
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(data.lat,data.lng),
+					map:map,
+					title:data.name
+				});
+					
+				  google.maps.event.addListener(marker, 'click', function() {
+				infowindow.setContent(marker.title); 
+				infowindow.open(map,marker);
+				});
+				
+				rooms.push(marker);	
+				
+				
+	
+								
+			}//end of function addMarker
+				
+				
 
-			var marker2 = new google.maps.Marker({
-				position: myLatlng2_GalbraithHall,
-				map: map,
-				title: 'Galbraith Hall'
-			});
-
-			var marker3 = new google.maps.Marker({
-				position: myLatlng3_Leichtag,
-				map: map,
-				title: 'Leichtag 2nd Floor'
-			});
-
-			var marker4 = new google.maps.Marker({
-				position:  myLatLng4_SME,
-				map: map,
-				title: 'Structural and Materials Engineering'
-			});
-
-
-			var marker5 = new google.maps.Marker({
-				position: myLatLng5_BSB,
-				map: map,
-				title: 'Biomedical Science Building'
-			});
-
-			var marker6 = new google.maps.Marker({
-				position: myLatLng6_EBU_3B,
-				map: map,
-				title: 'Computer Science and Engineering Building '
-			});
-
-			var marker7 = new google.maps.Marker({
-				position: myLatLng7_Nierenberg,
-				map: map,
-				title: 'Nierenberg'
-			});
-
-			var marker8 = new google.maps.Marker({
-				position:  myLatLng8_WomensCtr,
-				map: map,
-				title: "Women's Center"
-
-			});
-			var marker9 = new google.maps.Marker({
-				position: myLatLng9_TorreyPinesNorth,
-				map: map,
-				title: 'Torrey Pines North'
-			});
-
-			var marker10 = new google.maps.Marker({
-				position: myLatLng10_ThorntonHospital,
-				map: map,
-				title: 'Thornton Hospital'
-			});
-
-		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);
+			
+
 
     </script>
   </head>
   <body>
+	<!-- get the start location of the user -->
+	<div>
+		<form onchange = "calcRoute();">
+		 Start:<input id="start" type = "text" name="start"><br>
+		<input type = "submit" value = "Submit"><!-- submit button-->
+		</form>
+		</div>
     <div id="map-canvas"></div>
+	<div id = "directions-panel"></div>
   </body>
 </html>
