@@ -1,124 +1,236 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>UC Mom Map</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-		html, body, #map-canvas {
-			margin: 0;
-			padding: 0;
-			height: 100%;
-		}
-    </style>
-	
-	<!-- No API keys needed for V3 -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<head> 
+    <title>UC Mom Map</title> 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+
+<style type="text/css">
+html, body { height: 100%; } 
+</style>
+<script type="text/javascript"> 
+
+      // this variable will collect the html which will eventually be placed in the 2nd side panel 
+      var sidePanelHtml = ""; 
     
-	<script>
-		var map;//crate a map used later
-		var  directionDisplay = new google.maps.DirectionsRenderer();//DirectionRender object
-		var directionService = new google.maps.DirectionsService();//to use direction service in V3
-		var rooms =[];
-			//create only one infowindow
-			 var infowindow = new google.maps.InfoWindow({
-					size: new google.maps.Size(150,50)
+      // arrays to hold copies of the markers and html used by the side panel 
+      var rooms = []; 
+      var htmls = [];
+	  var infoHtmls = [];
+
+      // arrays to hold info window html with get direction forms open
+      var dirToHtml = [];
+      var dirFromHtml = [];
+
+     // global map variable
+      var map = null;
+	  var rendererOptions = {
+		draggable: true
+	  };
+	  
+	  // directions service
+	  var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);;
+	  var directionsService = new google.maps.DirectionsService();
+	  
+	  
+	// A function to create the marker and set up the event window function, called for each room
+		function createMarker(latlng, name, html, info) {
+		
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(latlng[0], latlng[1]),
+				map: map
 			});
-			
 
+			var i = rooms.length;
+
+			// The info window version with the "to here" form open
+			dirToHtml[i] = html + 'Directions: <b>To here</b> - <a href="javascript:fromhere(' + i + ')">From here</a>' +
+				   '<br>Start address:<form action="javascript:getDirections()">' +
+				   '<input type="text" SIZE=40 MAXLENGTH=40 name="saddr" id="saddr" value="" /><br>' +
+				   '<INPUT value="Get Directions" TYPE="SUBMIT"> &nbsp; &nbsp;' +
+				   'Walk <input type="checkbox" name="walk" id="walk" />' +
+				   'Bike <input type="checkbox" name="bike" id="bike" />' +
+				   '<input type="hidden" id="daddr" value="' + latlng[0] + ',' + latlng[1] + 
+				   '"/></form>';
+				// The info window version with the "from here" form open
+			dirFromHtml[i] = html + 'Directions: <a href="javascript:tohere(' + i + ')">To here</a> - <b>From here</b>' +
+				   '<br>End address:<form action="javascript:getDirections()">' +
+				   '<input type="text" SIZE=40 MAXLENGTH=40 name="daddr" id="daddr" value="" /><br>' +
+				   '<INPUT value="Get Directions" TYPE="SUBMIT"> &nbsp; &nbsp;' +
+				   'Walk <input type="checkbox" name="walk" id="walk" />' +
+				   'Bike <input type="checkbox" name="bike" id="bike" />' +
+				   '<input type="hidden" id="saddr" value="' + latlng[0] + ',' + latlng[1] +
+				   '"/></form>';
+				   
+				// The default version of the direction info asking To Here or From Here
+			html = html + 'Directions: <a href="javascript:tohere('+i+')">To here<\/a> - <a href="javascript:fromhere('+i+')">From here</a>';
+			var contentString = html;
+
+			//binding info window to marker
+			google.maps.event.addListener(marker, 'click', function() {
+				infowindow.setContent(contentString); 
+				infowindow.open(map,marker);
+				document.getElementById("directionsPanel").innerHTML = info;
+				});
+				
+			// save the info we need to use later for the side panel
+			rooms.push(marker);
 			
+			htmls[i] = html;
+			
+			// after marker is added, add a line to the side panel html (links room name to marker location on map)
+			sidePanelHtml += '<ul><li><a href="javascript:myclick(' + (rooms.length-1) + ')">' + name + '</a><br></li></ul>';
+			
+			return marker;
+		}
+
+      // function to request the directions 
+		function getDirections() {
 		
-		//the function is called in the end
+			
+			var request = {};
+			if (document.getElementById("walk").checked) 
+			{			   
+			   request.travelMode = google.maps.DirectionsTravelMode.WALKING;
+			} 
+			else if (document.getElementById("bike").checked)
+			{
+				request.travelMode = google.maps.DirectionsTravelMode.BICYCLING;
+			}
+			else 
+			{
+			  request.travelMode = google.maps.DirectionsTravelMode.DRIVING;
+			}
+
+			// set the start and end locations 
+			var saddr = document.getElementById("saddr").value
+			var daddr = document.getElementById("daddr").value
+	 
+			request.origin = saddr;
+			request.destination = daddr;
+			
+			directionsService.route(request, function(response, status) {
+			  if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay.setDirections(response);
+			  }
+			  else{
+				alert("Enter proper address or location");
+			  }
+			});
+	  }
+
+
+		// This function picks up the click and opens the corresponding info window
+		function myclick(i) {
+		  google.maps.event.trigger(rooms[i], "click");
+		}
+
+
+      // functions that open the directions forms
+      function tohere(i) {
+
+        infowindow.setContent(dirToHtml[i]); 
+        infowindow.open(map,rooms[i]);
+      }
+      function fromhere(i) {
+
+        infowindow.setContent(dirFromHtml[i]); 
+        infowindow.open(map,rooms[i]);
+      }
+
 		function initialize() {
-		   
-		   						//10 lactation rooms in total
-			//creating a marker array
-			var markers = [
-				{ lat: 32.88018,lng: -117.23661,name: "Price Center" },
-				{ lat: 32.87425,lng: -117.24086,name: "GalbraithHall"}, 
-				{ lat: 32.8777, lng: -117.2371, name: "Leichtag"},//2nd or 3rd floor
-				{ lat: 32.88040,lng: -117.23320,name:"Structural and Materials Engineering"},
-				{ lat: 32.8779, lng: -117.2345, name: "Biomedical Science Building"},
-				{ lat: 32.8841, lng: -117.2334, name: "Computer Science and Engineering Building "},
-				{ lat: 32.86906,lng:-117.25116, name: "Nierenberg"},
-				{ lat: 32.877848,lng: -117.234633,name : "Women's Center"}, 
-				{ lat: 32.89112,lng: -117.24263,name: "Torrey Pines North"}, 
-				{ lat: 32.8809, lng: -117.2256,name: "Thornton Hospital"} 
-			];
-		   	
-
-			var mapOptions = {
-				zoom: 16,
-				center: new google.maps.LatLng(32.878, -117.236),
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			//create the map
-			map = new google.maps.Map(document.getElementById('map-canvas'),
-				mapOptions);
-			directionDisplay.setMap(map);//bind the reader to the passed map
-			directionDisplay.setPanel(document.getElementById('directions-panel'));//show the textual result
-			
-			
-			//Zoom and center the map to fit the markers
-			var bounds = new google.maps.LatLngBounds();
-				for(index in markers){
-					addMarker(markers[index]);//add markers to the map
-					var data = markers[index];
-					bounds.extend(new google.maps.LatLng(data.lat, data.lng));
-				}
-				map.fitBounds(bounds);
-				
-				
-				
-				
-		
-			}//end of initialize
-			
-
-												
-			function addMarker(data){
-				//create the marker
-				 		  google.maps.event.addListener(map, 'click', function() {
+		  // create the map
+		  var myOptions = {
+			zoom: 15,
+			center: new google.maps.LatLng(32.8806, -117.2362),
+			mapTypeControl: true,
+			mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+			navigationControl: true,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		  }
+		  map = new google.maps.Map(document.getElementById("map_canvas"),
+										myOptions);
+		 
+			directionsDisplay.setMap(map);
+			directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+			google.maps.event.addListener(map, 'click', function() {
 				infowindow.close();
 				});
+			  
+				room1 = [32.88018, -117.23661]; //Price Center
+				room1Info = "<p>Room: Green Room (Room 2.115, across from Price Center Ballroom)</p> <p>Access: 8 am - 11 pm every day, including weekends. Hours vary during summer and holidays. Access code required. </p> <p>Equipment: Medela pump, chair/ottoman, table, lamp, refrigerator, microwave, sink  </p> <p>Building Contact: John Payne, (858) 534-8986, jpayne@ucsd.edu </p> <hr />" // Mingshang, look at this as an example
 				
+				room2 = [32.87425, -117.24086]; //Galbraith Hall
+				room2Info = "" //FILL IN (MINGSHAN)
 				
-				var marker = new google.maps.Marker({
-					position: new google.maps.LatLng(data.lat,data.lng),
-					map:map,
-					title:data.name
-				});
-					
-				  google.maps.event.addListener(marker, 'click', function() {
-				infowindow.setContent(marker.title); 
-				infowindow.open(map,marker);
-				});
+				room3 = [32.8777, -117.2371]; //Leichtag 2nd or 3rd floor
+				room3Info = "" //FILL IN (MINGSHAN)
 				
-				rooms.push(marker);	
+				room4 = [32.88040, -117.23320]; //Structural and Materials Engineering
+				room4Info = "" //FILL IN (MINGSHAN)
 				
+				room5 = [32.8779, -117.2345]; //Biomedical Science Building
+				room5Info = "" //FILL IN (MINGSHAN)
 				
-	
-								
-			}//end of function addMarker
+				room6 = [32.8841, -117.2334]; //Computer Science and Engineering Building 
+				room6Info = "" //FILL IN (MINGSHAN)
 				
+				room7 = [32.86906, -117.25116]; //Nierenberg
+				room7Info = "" //FILL IN (MINGSHAN)
+				
+				room8 = [32.877848, -117.234633]; //Women's Center
+				room8Info = "" //FILL IN (MINGSHAN)
+				
+				room9 = [32.89112, -117.24263]; //Torrey Pines North 
+				room9Info = "" //FILL IN (MINGSHAN)
+				
+				room10 =[32.8809, -117.2256]; //Thornton Hospital 
+				room10Info = "" //FILL IN (MINGSHAN)
+									
+				createMarker(room1, "UCSD Price Center" ,"<b> Price Center Room </b> <hr />", room1Info );
+				createMarker(room2, "Galbraith Hall", "<b> Galbraith Hall Room </b> <hr />",room2Info );
+				createMarker(room3, "Leichtag Hall" ,"<b> Leichtag Hall 2nd/3rd Floor Room </b> <hr />",room3Info);	
+				createMarker(room4, "Structural and Materials Engineering" ,"<b> Structural and Materials Engineering Room </b> <hr />",room4Info );
+				createMarker(room5, "Biomedical Science Building", "<b> Biomedical Science Building Room </b> <hr />",room5Info);
+				createMarker(room6, "Computer Science and Engineering Building" ,"<b> Computer Science and Engineering Building Room </b> <hr />",room6Info);	
+				createMarker(room7, "Nierenberg" ,"<b> Nierenberg Room </b> <hr />",room7Info );
+				createMarker(room8, "Women's Center", "<b> Women's Center Room </b> <hr />",room8Info);
+				createMarker(room9, "Torrey Pines North" ,"<b> Torrey Pines North Room </b> <hr />",room9Info);	
+				createMarker(room10, "Thornton Hospital" ,"<b> Thornton Hospital Room </b> <hr />",room10Info);	
 				
 
+				document.getElementById("side_bar").innerHTML = sidePanelHtml;
+			  
+			}
+ 
+			var infowindow = new google.maps.InfoWindow(
+			  { 
+				size: new google.maps.Size(150,50)
+			  });
+    
+</script> 
 
-		google.maps.event.addDomListener(window, 'load', initialize);
-			
-
-
-    </script>
-  </head>
-  <body>
-	<!-- get the start location of the user -->
-	<div>
-		<form onchange = "calcRoute();">
-		 Start:<input id="start" type = "text" name="start"><br>
-		<input type = "submit" value = "Submit"><!-- submit button-->
-		</form>
-		</div>
-    <div id="map-canvas"></div>
-	<div id = "directions-panel"></div>
-  </body>
-</html>
+</head> 
+<body style="margin:0px; padding:0px;" onload="initialize();"> 
+ 
+    <table border="1"> 
+      <tr> 
+        <td valign="top"> 
+           <div id="map_canvas" style="width: 800px; height: 655px"></div> 
+        </td> 
+        <td valign="top" style="width: 200px;"> 
+			<center><h4>Click on a Location to Find Room on Map</h4></center>
+           <div id="side_bar"></div> 
+        </td> 
+		<td valign="top" style="width: 400px;"> 	
+           <div id="directionsPanel"></div> 
+        </td> 
+      </tr> 
+    </table>
+ 
+    <noscript><p><b>JavaScript must be enabled in order for you to use Google Maps.</b> 
+      However, it seems JavaScript is either disabled or not supported by your browser. 
+      To view Google Maps, enable JavaScript by changing your browser options, and then 
+      try again.</p>
+    </noscript> 
+ 
+  </body> 
+</html> 
