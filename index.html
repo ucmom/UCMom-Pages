@@ -5,9 +5,11 @@
 		<!--link to the css file-->
 		<link type="text/css" rel="stylesheet" href="stylesheet.css">
 		<title>UC MOM</title>
+		
 	</head>
 	<body style="background-color:#82CAFA">
 		<!--to make the tags have some space between them-->
+		<div id="fdBtn"><a href="#fdback" ></a></div>
 		<table id="linkheadertable">
 			<tbody>
 			<tr>
@@ -184,6 +186,7 @@
 		</td>
 	</tr>
 	</table>
+	
 
 	<!-- modal window where the calendar to book times would appear -->
 		<div id = "reservtnCalendar" class = "modalWindow">
@@ -210,6 +213,24 @@
 				<a href = "#close" title= "Close" class = "close">X</a>
 			</div>
 		</div>
+		
+		<div id = "fdback" class = "modalWindow">
+			<div>
+			<form>
+				<h3>Name:</h3>
+				<input id="feedback_name" name="feedback[name]" size="45" type="text">
+				<h3>Email:</h3>
+				<input id="feedback_email" name="feedback[email]" size="45" type="email">
+				<h3>Feedback:</h3>
+				<textarea style="overflow:auto;resize:none" cols="35" id="feedback_content" name="feedback[content]" rows="7"></textarea>
+				<br />
+				<br />
+				<input id="fdSubmitBtn" type="button" value="Send Feedback">
+			</form>
+				<a href = "#close" title= "Close" class = "close">X</a>
+			</div>
+		</div>
+
 		
 	</body>
 </html>
