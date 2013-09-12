@@ -1,68 +1,17 @@
 /* CSS Document */
-body{
-	/*back-up font*/
-	font-family:Courier-New;
-	background-color:white;
+
+/* make link color in header blue */
+a{
+	text-decoration:none;
 	color:#4d96b8;
-	
-}
-
-#feedback{
-    display:block;
-    top:400px; 
-    left:1200px; 
-    width:100px; 
-    position:fixed; 
-    border:1px solid #000; 
-    padding:10px; 
-    text-align:center; 
-    color:#000; 
-}
-
-* html #feedback{
-    position:absolute;
-}
-
-#feedback a:visited, #feedback a{
-    display:block; 
-    width:100px; 
-    height:20px; 
-    margin:0 auto;  
-    text-align:center; 
-    text-decoration:none; 
-    color:#000;
-}
-
-#login{
-background-image: url("./images/BSB_B241.jpg");
-}
-
-/*how to make the block appear in the center of the page*/
-
-#geiselrow1, #geiselrow2, #geiselrow3, #geiselrow4 
-{
-	margin-left:auto;
-	margin-right:auto;
-}
-
-#loginbox
-{
-	background-color:#9cd2eb;
-	display:block;
-	height:200px;
-	width:400px;
-	border:1px solid #9cd2eb;
-	margin-left:auto;
-	margin-right:auto;
-	border-radius:5px;
 
 }
 
-.inputbox
-{
-	margin-left:30px;
-	margin-right:auto;
+/* make link color red after hovering over it */
+a:hover{
+	color:#FF0000;
 }
+
 
 .arrow_box {
     height: 40px;
@@ -86,42 +35,120 @@ background-image: url("./images/BSB_B241.jpg");
 	z-index: -2;
 } 
 
+body{
+	/*back-up font*/
+	font-family:Courier-New;
+	background-color:white;
+	color:#4d96b8;
+	
+}
+
+/* styling the smaller headers */
+body h3{
+	margin-left:auto;
+	margin-right:auto;
+	letter-spacing:5px;
+	word-spacing:5px;
+}
+
+#fdBtn
+ {
+    background:transparent url("./images/feedback.png") no-repeat scroll 0px 0px;
+    height:170px;
+    left:0;
+    position:fixed;
+    top:150px;
+    width:40px;
+}
+
+div#fdBtn:hover
+{
+    background-position:-41px 0px;
+}
+#fdBtn a
+{
+    display:block;
+    height:170px;
+    width:40px;
+}
+ 
+/*.firstLine{
+ 
+	font-family:Rage Italic;
+ 
+} */
+
+/*Modify the title of each lactation room*/
+.firstLine{
+	font-family:Garbriola,Harrington,High Tower Text,sans-serif;
+	padding-left:50px;/* make the title appear in the center*/
+	padding-right:50px;
+	font-size:20px;	
+}
+
+
+/*how to make the image blocks appear in the center of the page*/
+#geiselrow1, #geiselrow2, #geiselrow3, #geiselrow4 
+{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/* set blue color for the homepage */
+#home_body{
+	
+	background-color:#82CAFA;
+
+}
+
+/* make the link for home pink */
+#homeLink, #loginLink{
+	color:#FF66FF;
+}
+
+.inputbox
+{
+	margin-left:30px;
+	margin-right:auto;
+}
+
+/* make the text in the login button be pink when hovered over */
 input[type=submit]:hover{
-color:pink;
+	color:pink;
 }
 
 input[type=submit] {
 
-padding-top:9px;
-padding-bottom:10px;
-color:white;
-font-family: Courier-New;
-letter-spacing:1px;
-width:60px;
-cursor: pointer;
-background-color:transparent;
-border-color:transparent;
-font-weight:bold;
-font-size: 14px;
-margin-left: 2px;
-
+	padding-top:9px;
+	padding-bottom:10px;
+	color:white;
+	font-family: Courier-New;
+	letter-spacing:1px;
+	width:60px;
+	cursor: pointer;
+	background-color:transparent;
+	border-color:transparent;
+	font-weight:bold;
+	font-size: 14px;
+	margin-left: 2px;
 
 }
 
 #invalidLoginText
 {
-text-align:center;
-color:red;
+	text-align:center;
+	color:red;
 }
 
 
-/*I added this to make the spaces in the header -Sneha */
+/* to make the spaces in the header */
 #linkheadertable{
 	margin-left:auto;
 	margin-right:auto;
 	font-weight:bold;
 }
 
+/* styling the text in the linkheader table */
 #linkheadertable td{
     text-align:center;
 	width:100px;
@@ -131,58 +158,31 @@ color:red;
 	word-spacing:5px;
 }
 
-span{
-	color:#FF66FF;
-}
-
-a{
-	text-decoration:none;
-	color:#4d96b8;
-
-}
-
-a:hover{
-	color:#FF0000;
-}
-
-p{
-	font-family:Perpetua Titling MT;
-	color:#4d96b8;
-	font-size:50px;
-}
-
-p span{
-	font-family:Rage Italic;
-	color:#f2e518;
-	font-size:20px;
-}
-
-.white{
-	color:#FFFFFF;
-}
-
-.picture{
-	border:5px solid #4d96b8;
-	display:inline-block;
-	border-radius:7px;
-	background-color:#FFFFFF;
-	width:150px;
-	height:90px;
-	cursor:pointer;
-}
-
-body h3{
+#loginbox
+{
+	background-color:#9cd2eb;
+	display:block;
+	height:200px;
+	width:400px;
+	border:1px solid #9cd2eb;
 	margin-left:auto;
 	margin-right:auto;
-	letter-spacing:5px;
-	word-spacing:5px;
+	border-radius:5px;
+
 }
 
+#map_body{
+
+	margin:0px;
+	padding:0px;
+
+}
+/* styling the modal window */
 .modalWindow {
         position: fixed;
         font-family:Orator Std,Courier-New,sans-serif;
         font-size:80%;
-        top: 0;/*make the background appear the same in whole monitor*/
+        top: 0; /*make the background appear the same in whole monitor*/
         right: 0;
         bottom: 0;
         left: 0;
@@ -223,72 +223,73 @@ body h3{
 }
 
 
+/* modal window controls */
 
-/*Modify the title of each lactation room*/
-.firstLine{
-	font-family:Garbriola,Harrington,High Tower Text,sans-serif;
-	padding-left:50px;/* make the title appear in the center*/
-	padding-right:50px;
-	font-size:20px;
-	
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+	cursor:pointer;
+ }
+ 
+
+p{
+	font-family:Perpetua Titling MT;
+	color:#4d96b8;
+	font-size:50px;
 }
 
-.ok, .close, .cancel {
-        background: #606061;
-        color: #FFFFFF;
-        line-height: 25px;
-        text-align: center;
-        text-decoration: none;
-        font-weight: bold;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
-        border-radius: 2px;
-        -moz-box-shadow: 1px 1px 3px #000;
-        -webkit-box-shadow: 1px 1px 3px #000;
-        box-shadow: 1px 1px 3px #000;
-		
-    }
-    .close {
-        position: absolute;
-        right: 5px;
-        top: 5px;
-        width: 22px;
-        height: 22px;
-        font-size: 10px;
-		cursor:pointer;
- }
- 
- 
- .firstLine{
- 
- font-family:Rage Italic;
- 
+/* make San Diego text cursive and yellow */
+p span{
+	font-family:Rage Italic;
+	color:#f2e518;
+	font-size:20px;
+} 
 
- }
- 
+/* size the image blocks */
+.picture{
+	border:5px solid #4d96b8;
+	display:inline-block;
+	border-radius:7px;
+	background-color:#FFFFFF;
+	width:150px;
+	height:90px;
+	cursor:pointer;
+}
 
+/* make sure whole image appears in the cell */
 .picture img {
     height: 100%;
     width: 100%;
 }  
 
+	  
 
-#fdBtn
- {
-        background:transparent url("./images/feedback.png") no-repeat scroll 0px 0px;
-        height:170px;
-        left:0;
-        position:fixed;
-        top:150px;
-        width:40px;
-      }
- div#fdBtn:hover
-      {
-        background-position:-41px 0px;
-      }
-      #fdBtn a
-      {
-        display:block;
-        height:170px;
-        width:40px;
-      }
+/* text area for feedback form */	  
+textarea {
+	overflow:auto;
+	resize:none;
+}
+
+
+.white{
+	color:#FFFFFF;
+}
+
+
+
