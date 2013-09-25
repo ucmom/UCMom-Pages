@@ -39,7 +39,8 @@ body{
 	/*back-up font*/
 	font-family:Courier-New;
 	background-color:white;
-	color:#4d96b8;
+	color:#E284B9;
+	
 	
 }
 
@@ -92,18 +93,20 @@ div#fdBtn:hover
 {
 	margin-left:auto;
 	margin-right:auto;
+	
 }
 
 /* set blue color for the homepage */
 #home_body{
 	
 	background-color:#82CAFA;
+	z-index: -2136;
 
 }
 
 /* make the link for home pink */
 #homeLink, #loginLink{
-	color:#FF66FF;
+	color:#E6274D;
 }
 
 .inputbox
@@ -158,6 +161,17 @@ input[type=submit] {
 	word-spacing:5px;
 }
 
+#loginbg {
+
+	background: url("./images/geisel.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover; 
+	background-size: cover;  
+	
+}
+
 #loginbox
 {
 	background-color:#9cd2eb;
@@ -187,21 +201,23 @@ input[type=submit] {
         bottom: 0;
         left: 0;
         background: rgba(0,0,0,0.8);
-        z-index: 99999;
-        opacity:0;
+        opacity: 0;
         -webkit-transition: opacity 400ms ease-in;
         -moz-transition: opacity 400ms ease-in;
         transition: opacity 400ms ease-in;
         pointer-events: none;
+	
 }
 
 .modalWindow:target {
         opacity:1;
         pointer-events: auto;
+		 
 }
 
 
 .modalWindow > div{
+		
 		width: 350px;
         position: relative;
         margin: 10% auto;
@@ -245,6 +261,7 @@ input[type=submit] {
     height: 22px;
     font-size: 10px;
 	cursor:pointer;
+	  z-index: 999999;
  }
  
 
@@ -270,12 +287,14 @@ p span{
 	width:150px;
 	height:90px;
 	cursor:pointer;
+	z-index: -2136;
 }
 
 /* make sure whole image appears in the cell */
 .picture img {
     height: 100%;
     width: 100%;
+	z-index: -2136;
 }  
 
 	  
@@ -291,5 +310,7 @@ textarea {
 	color:#FFFFFF;
 }
 
-
-
+#fback {
+	z-index: -8923891823;
+	
+}
