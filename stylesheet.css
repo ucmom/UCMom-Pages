@@ -48,8 +48,7 @@ body{
 body h3{
 	margin-left:auto;
 	margin-right:auto;
-	letter-spacing:5px;
-	word-spacing:5px;
+	
 }
 
 #fdBtn
@@ -81,10 +80,10 @@ div#fdBtn:hover
 
 /*Modify the title of each lactation room*/
 .firstLine{
-	font-family:Garbriola,Harrington,High Tower Text,sans-serif;
-	padding-left:50px;/* make the title appear in the center*/
-	padding-right:50px;
-	font-size:20px;	
+	font-family:Orator Std,Courier-New,sans-serif;
+	margin-left:auto;/* make the title appear in the center*/
+	margin-right:auto;
+	font-size:16px;	
 }
 
 
@@ -163,12 +162,13 @@ input[type=submit] {
 
 #loginbg {
 
-	background: url("./images/geisel.jpg") no-repeat center center fixed;
+	background: url("./images/geisel.jpg") no-repeat center center ;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover; 
 	background-size: cover;  
+	
 	
 }
 
@@ -297,7 +297,13 @@ p span{
 	z-index: -2136;
 }  
 
-	  
+.smallLine{
+
+	font-family:Orator Std,Courier-New,sans-serif;
+	font-size:16px;
+    padding-left: 50px;
+	padding-right: 50px; 
+}  
 
 /* text area for feedback form */	  
 textarea {
