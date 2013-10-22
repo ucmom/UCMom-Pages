@@ -6,243 +6,16 @@
 		<link type="text/css" rel="stylesheet" href="stylesheet.css">
 		<!-- title header -->
 		<title>UC MOM Home</title>
-		<style>
-    .blockbkg {
-      background-color: black;
-      opacity: 90%;
-      filter:alpha(opacity=90);
-      background-color: rgba(0,0,0,0.80);
-      width: 100%;
-      min-height: 100%;
-      overflow: hidden;
-      float: absolute;
-      position: fixed;
-      top: 0;
-      left: 0;
-      color: white;
-	  font-family:Arial;
-        font-size:80%;
 
-    }
-    .cont {
-      background-color: white;
-      color: black;
-      font-size: 16px;
-      border: 1px solid gray;
-      padding: 20px;
-      display:block;
-
-	  border-radius: 10px;
-      background: #fff;
-	  width: 350px;
-      position: relative;
-      margin: 10% auto;
-      background-color:rgba(5, 9, 26, 0.88);
-	  opacity: 0.8;
-      border: 1px solid white;
-	  box-shadow: 0px 0px 0px 15px rgba(109, 144, 182, 0.7); 
-	  color: rgb(163, 135, 135);
-      
-    }
-    div[id^='closebtn'] {
-      width: 10px;
-      height: 10px;
-      padding: 5px;
-      margin: 2px;
-      float: right;
-      top: 0;
-      background-image: url(x.png);
-      background-repeat: no-repeat;
-      background-position:center;
-      background-color: lightgray;
-      display: block;
-    }
-    div[id^='closebtn']:hover {
-      cursor: pointer;
-    }
-
-  </style>
-		  <script src="./js/jquery-1.7.2.min.js" type="text/javascript">
-  </script>
-
-<script>
-    $(document).ready(function () {
-      $("#closebtn").click(function () {
-        $("#dlg").hide('800', "swing", function () { $("#bkg").fadeOut("500"); });
-      });
-      $("#opn").click(function () {
-        if (document.getElementById('bkg').style.visibility == 'hidden') {
-          document.getElementById('bkg').style.visibility = '';
-          $("#bkg").hide();
-        }
-        if (document.getElementById('dlg').style.visibility == 'hidden') {
-          document.getElementById('dlg').style.visibility = '';
-          $("#dlg").hide();
-        }
-        $("#bkg").fadeIn(500, "linear", function () { $("#dlg").show(800, "swing"); });
-      });    
-$("#closebtn2").click(function () {
-        $("#dlg2").hide('800', "swing", function () { $("#bkg2").fadeOut("500"); });
-      });
-	  $("#opn2").click(function () {
-        if (document.getElementById('bkg2').style.visibility == 'hidden') {
-          document.getElementById('bkg2').style.visibility = '';
-          $("#bkg2").hide();
-        }
-        if (document.getElementById('dlg2').style.visibility == 'hidden') {
-          document.getElementById('dlg2').style.visibility = '';
-          $("#dlg2").hide();
-        }
-        $("#bkg2").fadeIn(500, "linear", function () { $("#dlg2").show(800, "swing"); });
-      }); 
-	  $("#closebtn3").click(function () {
-        $("#dlg3").hide('800', "swing", function () { $("#bkg3").fadeOut("500"); });
-      });
-	  $("#opn3").click(function () {
-        if (document.getElementById('bkg3').style.visibility == 'hidden') {
-          document.getElementById('bkg3').style.visibility = '';
-          $("#bkg3").hide();
-        }
-        if (document.getElementById('dlg3').style.visibility == 'hidden') {
-          document.getElementById('dlg3').style.visibility = '';
-          $("#dlg3").hide();
-        }
-        $("#bkg3").fadeIn(500, "linear", function () { $("#dlg3").show(800, "swing"); });
-      }); 
-	  $("#closebtn4").click(function () {
-        $("#dlg4").hide('800', "swing", function () { $("#bkg4").fadeOut("500"); });
-      });
-	  $("#opn4").click(function () {
-        if (document.getElementById('bkg4').style.visibility == 'hidden') {
-          document.getElementById('bkg4').style.visibility = '';
-          $("#bkg4").hide();
-        }
-        if (document.getElementById('dlg4').style.visibility == 'hidden') {
-          document.getElementById('dlg4').style.visibility = '';
-          $("#dlg4").hide();
-        }
-        $("#bkg4").fadeIn(500, "linear", function () { $("#dlg4").show(800, "swing"); });
-      }); 
-	  
-	  
-	  $("#closebtn5").click(function () {
-        $("#dlg5").hide('800', "swing", function () { $("#bkg5").fadeOut("500"); });
-      });
-	  $("#opn5").click(function () {
-        if (document.getElementById('bkg5').style.visibility == 'hidden') {
-          document.getElementById('bkg5').style.visibility = '';
-          $("#bkg5").hide();
-        }
-        if (document.getElementById('dlg5').style.visibility == 'hidden') {
-          document.getElementById('dlg5').style.visibility = '';
-          $("#dlg5").hide();
-        }
-        $("#bkg5").fadeIn(500, "linear", function () { $("#dlg5").show(800, "swing"); });
-      }); 
-	  
-	  
-	  $("#closebtn6").click(function () {
-        $("#dlg6").hide('800', "swing", function () { $("#bkg6").fadeOut("600"); });
-      });
-	  $("#opn6").click(function () {
-        if (document.getElementById('bkg6').style.visibility == 'hidden') {
-          document.getElementById('bkg6').style.visibility = '';
-          $("#bkg6").hide();
-        }
-        if (document.getElementById('dlg6').style.visibility == 'hidden') {
-          document.getElementById('dlg6').style.visibility = '';
-          $("#dlg6").hide();
-        }
-        $("#bkg6").fadeIn(500, "linear", function () { $("#dlg6").show(800, "swing"); });
-      }); 
-	  
-	  
-	  $("#closebtn7").click(function () {
-        $("#dlg7").hide('800', "swing", function () { $("#bkg7").fadeOut("700"); });
-      });
-	  $("#opn7").click(function () {
-        if (document.getElementById('bkg7').style.visibility == 'hidden') {
-          document.getElementById('bkg7').style.visibility = '';
-          $("#bkg7").hide();
-        }
-        if (document.getElementById('dlg7').style.visibility == 'hidden') {
-          document.getElementById('dlg7').style.visibility = '';
-          $("#dlg7").hide();
-        }
-        $("#bkg7").fadeIn(500, "linear", function () { $("#dlg7").show(800, "swing"); });
-      }); 
-	  
-	  
-	  $("#closebtn8").click(function () {
-        $("#dlg8").hide('800', "swing", function () { $("#bkg8").fadeOut("800"); });
-      });
-	  $("#opn8").click(function () {
-        if (document.getElementById('bkg8').style.visibility == 'hidden') {
-          document.getElementById('bkg8').style.visibility = '';
-          $("#bkg8").hide();
-        }
-        if (document.getElementById('dlg8').style.visibility == 'hidden') {
-          document.getElementById('dlg8').style.visibility = '';
-          $("#dlg8").hide();
-        }
-        $("#bkg8").fadeIn(500, "linear", function () { $("#dlg8").show(800, "swing"); });
-      }); 
-	  
-	  
-	  $("#closebtn9").click(function () {
-        $("#dlg9").hide('900', "swing", function () { $("#bkg9").fadeOut("900"); });
-      });
-	  $("#opn9").click(function () {
-        if (document.getElementById('bkg9').style.visibility == 'hidden') {
-          document.getElementById('bkg9').style.visibility = '';
-          $("#bkg9").hide();
-        }
-        if (document.getElementById('dlg9').style.visibility == 'hidden') {
-          document.getElementById('dlg9').style.visibility = '';
-          $("#dlg9").hide();
-        }
-        $("#bkg9").fadeIn(500, "linear", function () { $("#dlg9").show(800, "swing"); });
-      }); 
-	  
-	  $("#closebtn10").click(function () {
-        $("#dlg10").hide('1000', "swing", function () { $("#bkg10").fadeOut("1000"); });
-      });
-	  $("#opn10").click(function () {
-        if (document.getElementById('bkg10').style.visibility == 'hidden') {
-          document.getElementById('bkg10').style.visibility = '';
-          $("#bkg10").hide();
-        }
-        if (document.getElementById('dlg10').style.visibility == 'hidden') {
-          document.getElementById('dlg10').style.visibility = '';
-          $("#dlg10").hide();
-        }
-        $("#bkg10").fadeIn(500, "linear", function () { $("#dlg10").show(800, "swing"); });
-      }); 
-	  
-	  $("#closebtn11").click(function () {
-        $("#dlg11").hide('1100', "swing", function () { $("#bkg11").fadeOut("1100"); });
-      });
-	  $("#opn11").click(function () {
-        if (document.getElementById('bkg11').style.visibility == 'hidden') {
-          document.getElementById('bkg11').style.visibility = '';
-          $("#bkg11").hide();
-        }
-        if (document.getElementById('dlg11').style.visibility == 'hidden') {
-          document.getElementById('dlg11').style.visibility = '';
-          $("#dlg11").hide();
-        }
-        $("#bkg11").fadeIn(500, "linear", function () { $("#dlg11").show(800, "swing"); });
-      }); 
-	  
-    });
-  </script>
+		  <script src="./js/jquery-1.7.2.min.js" type="text/javascript"></script>
+		  <script src= "./js/new.js" type="text/javascript"></script>
   
 	</head>
 
 	
 	<body id="home_body">
 		<!--add a feedback button to the left side of the home page-->
-		<div id="fdBtn"><a href="#fdback" ></a></div>
+		<div id="fdBtn"><a href="#"></a></div>
 		<!-- table to hold all the links in the header -->
 		<table id="linkheadertable">
 				<tr>
@@ -264,29 +37,23 @@ $("#closebtn2").click(function () {
 	<tr>
 		<!-- try to make the picture clickable to open a modal window so the user can use the room reservation system-->
 		<!-- Biomedical Science Building -->
-		<td><a href="#" id="opn"><div title = "Biomedical Science Building" class="picture"><img src="./images/BSB_B241.jpg" /></div></a>
-				<div class="blockbkg" id="bkg" style="visibility: hidden;">
-				<div class="cont" id="dlg" style="visibility: hidden;">
-				<div id="closebtn" title="Close"></div>
-					
-						<!-- heading of the modal window indicating which room -->
+
+			<td>
+			<a href="#" id="opn1"><div title = "Biomedical Science Building" class="picture"><img src="./images/BSB_B241.jpg" /></div></a>
+				<div class="blockbkg" id="bkg1" style="visibility: hidden;">
+				<div class="cont" id="dlg1" style="visibility: hidden;">
+				<div id="closebtn1" title="Close"></div>
 						<center>
+						<!--want to change the font of the h1 heading-->
 						<h1 class  = smallLine>Biomedical Sciences Building</h1>
-						<!-- link to a modal window to make a reservation-->
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<!-- link to a modal window to cancel a reservation-->
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<!-- link to a modal window to view all reservations-->
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a>
-						<!-- link to close opened modal window-->
+						<a href = "#" id="bsbMR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="bsbC"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="bsbVA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
-						
-					
-				</div>
+					</div>
 				</div>
 		</td>
-		
 	
 	<td>
 			<a href="#" id="opn2"><div title = "Computer Science and Engineering Building" class="picture"><img src="./images/EBU-3B_3113.jpg" /></div></a>
@@ -296,9 +63,9 @@ $("#closebtn2").click(function () {
 						<center>
 						<!--want to change the font of the h1 heading-->
 						<h1 class  = smallLine>CSE Building</h1>
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
+						<a href = "#" id="cseMR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="cseC"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="cseVA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
 					</div>
@@ -321,9 +88,9 @@ $("#closebtn2").click(function () {
 				<div id="closebtn3" title="Close"></div>
 					<center>
 						<h1 class  = smallLine>Galbraith Hall</h1>
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
+						<a href = "#" id="ghMR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="ghC"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="ghVA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
 					</div>
@@ -338,9 +105,9 @@ $("#closebtn2").click(function () {
 				<div id="closebtn4" title="Close"></div>
 					<center>
 						<h1 class  = smallLine>Leichtag 2nd Floor</h1>
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
+						<a href = "#" id="l2MR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="l2C"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="l2VA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
 					</div>
@@ -352,12 +119,12 @@ $("#closebtn2").click(function () {
 			<a href="#" id="opn5"><div title = "Leichtag 3rd Floor" class="picture"><img src="./images/Leichtag_3rdFloor.jpg" /></div></a>
 				<div class="blockbkg" id="bkg5" style="visibility: hidden;">
 				<div class="cont" id="dlg5" style="visibility: hidden;">
-				<div id="closebtn5" title="Close"></div>
+				<div id="closebtn5"  title="Close"></div>
 					<center>
 						<h1 class  = smallLine>Leichtag 3rd Floor</h1>
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
+						<a href = "#" id="l3MR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="l3C"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="l3VA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
 					</div>
@@ -378,12 +145,12 @@ $("#closebtn2").click(function () {
 			<a href="#" id="opn6"><div title = "Nierenberg" class="picture"><img src = "./images/Nierenberg_416C.jpg"></div></a>
 				<div class="blockbkg" id="bkg6" style="visibility: hidden;">
 				<div class="cont" id="dlg6" style="visibility: hidden;">
-				<div id="closebtn6" title="Close"></div>
+				<div id="closebtn6"  title="Close"></div>
 					<center>
 						<h1 class  = smallLine>Nierenberg</h1>
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
+						<a href = "#" id="nbMR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="nbC"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="nbVA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
 					</div>
@@ -395,12 +162,12 @@ $("#closebtn2").click(function () {
 			<a href="#" id="opn7"><div title = "Price Center" class="picture"><img src = "./images/PriceCtrGreen_2.115.jpg"></div></a>
 				<div class="blockbkg" id="bkg7" style="visibility: hidden;">
 				<div class="cont" id="dlg7" style="visibility: hidden;">
-				<div id="closebtn7" title="Close"></div>
+				<div id="closebtn7"  title="Close"></div>
 					<center>
 						<h1 class  = smallLine>Price Center</h1>
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
+						<a href = "#" id="pcMR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="pcC"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="pcVA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
 					</div>
@@ -412,12 +179,12 @@ $("#closebtn2").click(function () {
 			<a href="#" id="opn8"><div title = "Structural and Materials Engineering" class="picture"><img src = "./images/SME_4thFloor.jpg"></div></a>
 				<div class="blockbkg" id="bkg8" style="visibility: hidden;">
 				<div class="cont" id="dlg8" style="visibility: hidden;">
-				<div id="closebtn8" title="Close"></div>
+				<div id="closebtn8"  title="Close"></div>
 					<center>
 						<h1 class  = smallLine>SME 4th Floor</h1>
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
+						<a href = "#" id="smeMR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="smeC"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="smeVA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
 					</div>
@@ -429,12 +196,12 @@ $("#closebtn2").click(function () {
 			<a href="#" id="opn9"><div title = "Torrey Pines North" class="picture"><img src = "./images/TorreyPinesNorth_130.jpg"></div></a>
 				<div class="blockbkg" id="bkg9" style="visibility: hidden;">
 				<div class="cont" id="dlg9" style="visibility: hidden;">
-				<div id="closebtn9" title="Close"></div>
+				<div id="closebtn9"  title="Close"></div>
 					<center>
 						<h1 class  = smallLine>Torrey Pines North</h1>
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
+						<a href = "#" id="tpMR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="tpC"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="tpVA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
 					</div>
@@ -456,12 +223,12 @@ $("#closebtn2").click(function () {
 			<a href="#" id="opn10"><div title = "Women's Center" class="picture"><img src = "./images/WomensCtr.jpg"></div></a>
 				<div class="blockbkg" id="bkg10" style="visibility: hidden;">
 				<div class="cont" id="dlg10" style="visibility: hidden;">
-				<div id="closebtn10" title="Close"></div>
+				<div id="closebtn10"  title="Close"></div>
 					<center>
 						<h1 class  = smallLine>Women's Center</h1>
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
+						<a href = "#" id="wcMR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="wcC"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="wcVA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
 					</div>	
@@ -473,12 +240,12 @@ $("#closebtn2").click(function () {
 			<a href="#" id="opn11"><div title = "Thornton Hospital" class="picture"><img src = "./images/ThorntonHospital.jpg"></div></a>
 				<div class="blockbkg" id="bkg11" style="visibility: hidden;">
 				<div class="cont" id="dlg11" style="visibility: hidden;">
-				<div id="closebtn11" title="Close"></div>
+				<div id="closebtn11"  title="Close"></div>
 					<center>
 						<h1 class  = smallLine>Thornton Hospital</h1>
-						<a href = "#reservtnCalendar"><h3 class="make_res">MAKE A RESERVATION</h3></a>
-						<a href = "#reservtnCancel"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
-						<a href = "#reservtnView"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
+						<a href = "#" id="thMR"><h3 class="make_res">MAKE A RESERVATION</h3></a>
+						<a href = "#" id="thC"><h3 class="cancel_res">CANCEL A RESERVATION</h3></a>
+						<a href = "#" id="thVA"><h3 class="view_res">VIEW ALL RESERVATIONS</h3></a> 
 						</center>
 						
 					</div>	
@@ -492,6 +259,70 @@ $("#closebtn2").click(function () {
 	</table>
 	  
 	
+	
+	<div class="blockbkg" id="bkg12" style="visibility: hidden;">
+				<div class="cont" id="dlg12" style="visibility: hidden;">
+				<div id="closebtn12" title="Close"></div>
+			
+				<center>
+				<!-- have to replace this section with interactive calendar -->
+				<h3>Choose time slot on calendar:</h3>
+				<h3>Date</h3>
+				<h3>Time</h3>
+				</center>
+			</div>
+		</div>
+	
+	<!-- modal window code for where the cancel button appears to cancel reservations -->	
+			<div class="blockbkg" id="bkg13" style="visibility: hidden;">
+				<div class="cont" id="dlg13" style="visibility: hidden;">
+				<div id="closebtn13" title="Close"></div>
+			<center>
+				<h3>Choose a Reservation to Cancel:</h3>
+				<!-- have to populate with reservations made by user with checkboxes-->
+				<!-- button to cancel the reservations marked in their respective checkboxes-->
+				<br />
+				
+				<input id="cancelBtn" type="button" value="Cancel Reservation">
+				<br />
+				<br />
+				<br />
+				<center>
+			</div>
+		</div>
+		
+	<!-- modal window code for where all the user's reservations would appear -->
+			<div class="blockbkg" id="bkg14" style="visibility: hidden;">
+				<div class="cont" id="dlg14" style="visibility: hidden;">
+				<div id="closebtn14" title="Close"></div>
+			<center>
+				<h3>Your Reservations:</h3>
+				<center>
+			</div>
+		</div>
+	
+	<!-- modal window code that opens up a feedback form -->
+			<div class="blockbkg" id="bkg15" style="visibility: hidden;">
+				<div class="cont" id="dlg15" style="visibility: hidden;">
+				<div id="closebtn15" title="Close"></div>
+			<form>
+				<h3>Name:</h3>
+				<input id="feedback_name" name="feedback[name]" size="45" type="text">
+				
+				<h3>Email:</h3>
+				<input id="feedback_email" name="feedback[email]" size="45" type="email">
+				
+				<h3>Feedback:</h3>
+				<textarea cols="35" id="feedback_content" name="feedback[content]" rows="7"></textarea>
+				
+				<br />
+				<br />
+				
+				<input id="fdSubmitBtn" type="button" value="Send Feedback">
+			</form>
+				
+			</div>
+		</div>
 
 
 		
